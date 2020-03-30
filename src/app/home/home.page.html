@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-button slot="start">
+      <ion-icon name="cart-outline"></ion-icon></ion-button>
+    <ion-title style="text-align: center;">
+      Productos
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" (ionRefresh)="doRefresh($event)">
+  <ion-refresher slot="fixed" >
+  <ion-refresher-content
+  pullingIcon="arrow-dropdown"
+  pullingText="Actualizando los Producto"
+  refreshingSpinner="circles"
+  refreshingText="Actualizando....">
+
+
+
+  </ion-refresher-content>
+
+</ion-refresher>
+
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Producto De la Tienda</ion-label>
+      <ion-icon slot="start" color="primary" name="add-circle" [routerLink]="['/','agregar-producto']"></ion-icon>
+    </ion-item>
+
+  </ion-list>
+
+
+
+
+    <ion-row *ngFor="let Producto of proList">
+  
+
+    <ion-col style="color:blue; font-family: Arial Black;" >Codigo:  <p style="color: white;">{{Producto.codigo}}</p></ion-col>
+    <ion-col  style="color:blue; font-family: Arial Black;">Nombre:  <p style="color: white;">{{Producto.nombre}}</p></ion-col>
+    <ion-col  style="color:blue; font-family: Arial Black;">Descripcion: <p style="color: white;">{{Producto.descripcion}}</p></ion-col>
+    <ion-col  style="color:blue; font-family: Arial Black;">Precio:  <p style="color: white;">{{Producto.precio}}</p></ion-col>
+
+    <ion-item>
+      <ion-icon  color="primary" name="add-circle" [routerLink]="['/','agregar-producto',Producto.codigo]"></ion-icon>
+      <ion-icon  name="remove-circle-outline" (click)="EliminarProducto(Producto.codigo)"></ion-icon>
+
+
+
+    </ion-item>
+   
+     
+
+
+<p></p>
+
+  </ion-row>
+
+
+
+
+  
+
+
+
+    
+    
+
+
+
+
+
+  
+
+
+ 
+</ion-content>

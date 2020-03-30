@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Agregar-Producto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form name="editForm" #editForm="ngForm" (ngSubmit)="Guardar()" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label>Codigo</ion-label>
+        <ion-input name="codigo" [(ngModel)]="prod.codigo" required></ion-input>
+
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nombre</ion-label>
+        <ion-input name="nombre" [(ngModel)]="prod.nombre" required ></ion-input>
+
+
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Descripcion</ion-label>
+        <ion-input name="descripcion" [(ngModel)]="prod.descripcion" required ></ion-input>
+
+
+      </ion-item>
+
+
+      <ion-item>
+        <ion-label>Precio</ion-label>
+        <ion-input name="precio" [(ngModel)]="prod.precio" required></ion-input>
+
+
+      </ion-item>
+
+      </ion-list>
+
+      <ion-button [disabled]="editForm.form.invalid" (click)="Guardar()">Guardar</ion-button>
+
+  
+    </form>
+
+</ion-content>
